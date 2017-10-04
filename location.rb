@@ -20,11 +20,24 @@ class Trips
     @destinations << new_destination
     new_destination
   end
+
+  def itinerary
+    p "Began trip."
+    destinations.each_cons(2) do |destination|
+      p "Travelled from #{destination[0].name} to #{destination[1].name}."
+    end
+    p "Ended trip."
+  end
+
 end
 
-Trips.new.destination("Toronto")
-Trips.new.destination("Ottawa")
-Trips.new.destination("Montreal")
-Trips.new.destination("Quebec City")
-Trips.new.destination("Halifax")
-Trips.new.destination("St. John's")
+trip = Trips.new
+
+trip.destination("Toronto")
+trip.destination("Ottawa")
+trip.destination("Montreal")
+trip.destination("Quebec City")
+trip.destination("Halifax")
+trip.destination("St. John's")
+
+trip.itinerary.inspect
